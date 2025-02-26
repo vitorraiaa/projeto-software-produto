@@ -11,7 +11,7 @@
 	<groupId>br.insper</groupId>
 	<artifactId>produto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>produto</name>
+	<name>produtos</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
