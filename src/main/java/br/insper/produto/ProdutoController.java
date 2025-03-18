@@ -1,6 +1,5 @@
 package br.insper.produto;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -8,8 +7,12 @@ import java.util.List;
 @RequestMapping("/api/produto")
 public class ProdutoController {
 
-    @Autowired
-    private ProdutoService produtoService;
+    private final ProdutoService produtoService;
+
+    // Injeção via construtor
+    public ProdutoController(ProdutoService produtoService) {
+        this.produtoService = produtoService;
+    }
 
     @PostMapping
     public Produto criarProduto(@RequestBody Produto produto) {
