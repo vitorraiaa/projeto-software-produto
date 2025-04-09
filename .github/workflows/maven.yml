@@ -57,5 +57,10 @@ jobs:
         script: |
           docker stop produtos
           docker rm --force produtos
-          docker run -d -p 8082:8082 --name produtos --network=rede vitorraia10/produtos-ci:${{ github.sha }}
-
+          docker run -d -p 8082:8082 \
+           -e USER_DB=${{ secrets.USER_DB }} \
+           -e PASS_DB=${{ secrets.PASS_DB }} \
+           -e PATH_DB=${{ secrets.PATH_DB }} \
+           -e NAME_DB=${{ secrets.NAME_DB }} \
+           -e REDIS_HOST=redis \
+           --name produtos --network=rede vitorraia10/produtos-ci:${{ github.sha }}
